@@ -16,7 +16,7 @@
        - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
      
     install:
-       - arduino --install-library "Keypad"
+       - arduino --install-library "Keypad", "Rtc by Makuna"
      
     script:
        - build_main_platforms
