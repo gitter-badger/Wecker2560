@@ -19,5 +19,5 @@
        #- arduino --install-library "Adafruit GFX Library"
      
     script:
-- build_main_platforms
+        -  build_main_platforms
 
