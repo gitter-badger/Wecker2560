@@ -1,4 +1,4 @@
-   language: c
+    language: c
     sudo: false
     cache:
       directories:
@@ -15,9 +15,8 @@
     before_install:
        - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
      
-    #install:
-       #- arduino --install-library "Adafruit GFX Library"
+    install:
+       - arduino --install-library "Adafruit GFX Library"
      
     script:
-        -  build_main_platforms
-
+       - build_main_platforms
