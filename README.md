@@ -3,3 +3,6 @@
 
 
 Ein Wecker für Arduino + RTC-Modul
+
+### Unterstützte Boards
+
