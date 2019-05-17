@@ -38,5 +38,5 @@ void handleBacklight(){
 
 void handleCurrentDateTime(){
     RtcDateTime current = Rtc.GetDateTime();
-    lcd.print();
+    //lcd.print();
 }
