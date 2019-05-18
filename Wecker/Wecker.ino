@@ -77,6 +77,17 @@ void zeitDarstellen(RtcDateTime zeit){
     static char* wochentage[] = {
           "So","Mo","Di","Mi","Do","Fr","Sa"
       };
+
+    if(zeit.Day() > 31 || zeit.Month() > 12 ||
+    zeit.Hour() > 24 || zeit.Minute() > 60 || 
+    zeit.Second() > 60 || zeit.Year() < 2019){
+      lcd.print("ung\365ltiges");
+      lcd.setCursor(0,1);
+      lcd.print("Zeitsignal");
+      return;
+     }
+      
+      
     lcd.print(wochentage[zeit.DayOfWeek()]);
     lcd.print(",");
     if(zeit.Day() <= 9) lcd.print("0");
@@ -86,6 +97,7 @@ void zeitDarstellen(RtcDateTime zeit){
     lcd.print(zeit.Month());
     lcd.print(".");
     lcd.print(zeit.Year()-2000);
+    lcd.print("      ");
     lcd.setCursor(0,1);
     if(zeit.Hour() <= 9) lcd.print("0");
     lcd.print(zeit.Hour());
@@ -95,6 +107,7 @@ void zeitDarstellen(RtcDateTime zeit){
     lcd.print(":");
     if(zeit.Second() <= 9) lcd.print("0");
     lcd.print(zeit.Second());
+    lcd.print("      ");
 }
 
 void zeitDarstellen(RtcDateTime zeit, int x, int y, boolean wochentag){
