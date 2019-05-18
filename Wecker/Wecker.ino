@@ -290,9 +290,10 @@ void steuerungRegeln(){
     }
   }
 }
-#endif
-#if defined(ESP8266)
-#warning "ESP8266 ausgewählt"
+#elif defined(ESP8266)
+#error "noch nicht implementiert"
+void setup(){}
+void loop(){}
 #else
 void setup(){}
 void loop(){}
