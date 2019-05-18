@@ -47,7 +47,6 @@ void loop() {
   if(index == 1){
     wecker();  
   }
-  Serial.println(long(t));
     
 }
 
@@ -67,7 +66,6 @@ void beleuchtungRegeln(){
   }
   
   if(millis()-t >= 8000){
-    Serial.println("bildschirm aus");
     analogWrite(b, 0);
     displayAn = false;
     return;
@@ -261,7 +259,6 @@ void steuerung1(){
 }
 
 void steuerung2(){
-  Serial.println("Steuerung 2!");
   switch(lcd_key){
       case btnRIGHT: index++; lcd.clear(); break;
       case btnLEFT: index--; lcd.clear(); break;
