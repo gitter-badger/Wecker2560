@@ -14,8 +14,8 @@ Ein Wecker für Mega2560 + DS1302-Modul (Echtzeit-Uhr) + ESP8266 (WLAN) + HC-05/
 7. Sketch hochladen
 
 ## Schaltung
+<img src="https://github.com/leonardoInf/Wecker2560/blob/master/Wecker/mega2560-wecker_Steckplatine.jpg"  alt="schaltung-wecker2560" width="2000" height="400">
 
-[](Wecker/mega2560-wecker_Steckplatine.jpg)
 
 
 
