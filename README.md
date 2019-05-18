@@ -13,7 +13,9 @@ Ein Wecker für Mega2560 + DS1302-Modul (Echtzeit-Uhr) + ESP8266 (WLAN) + HC-05/
 6. Einstellungen für das Board und den Seriellen Port auswählen (z.B. ``/dev/ttyACM0`` ,``/dev/ttyUSB0`` oder ``COM8``)
 7. Sketch hochladen
 
-## Schaltung Mega2560
+## Schaltung
+
+[](Wecker/mega2560-wecker_Steckplatine.jpg)
 
 
 
