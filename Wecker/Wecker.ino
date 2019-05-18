@@ -9,7 +9,7 @@
 boolean displayAnTaste = false;
 boolean displayAn = true;
 boolean alarmAn = false;
-long long t = 0;
+unsigned long t = 0;
 auto index = 0;
 auto selIndex = 0;
 auto up_down_inc = 0;
@@ -132,7 +132,7 @@ void alarmRegeln(){
 }
 
 void alarm(){
-  long long t2 = millis();
+  unsigned long t2 = millis();
   tone(38, 500);
   warten(t2);
   noTone(38);
@@ -141,7 +141,7 @@ void alarm(){
   if(alarmAn) alarm();
 }
 
-void warten(long long t2){
+void warten(unsigned long t2){
     while(millis()-t2 < 2000){
     lcd_key = read_LCD_buttons();
     if(buttonPressed(lcd_key)) {alarmAn = false;Serial.println("ausgeschaltet");}
