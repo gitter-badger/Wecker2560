@@ -291,7 +291,7 @@ void steuerungRegeln(){
   }
 }
 #elif defined(ESP8266)
-#error "noch nicht implementiert"
+//noch nicht implementiert
 void setup(){}
 void loop(){}
 #else
