@@ -47,7 +47,7 @@ void loop() {
   if(index == 1){
     wecker();  
   }
-  Serial.println(int(t));
+  Serial.println(long(t));
     
 }
 
@@ -57,17 +57,22 @@ void beleuchtungRegeln(){
     analogWrite(b, 255);
     displayAnTaste = true;
     displayAn = true;
+    return;
   }
-  
-  if(millis()-t >= 6000){
+
+  if(displayAn){
+  if(millis()-t >= 6000 && millis()-t < 8000){
     analogWrite(b, 100);
-    displayAn = false;
+    return;
   }
   
   if(millis()-t >= 8000){
+    Serial.println("bildschirm aus");
     analogWrite(b, 0);
     displayAn = false;
+    return;
   }
+ }
 }
 
 void zeitDarstellen(RtcDateTime zeit){
@@ -124,9 +129,27 @@ void zeitDarstellen(RtcDateTime zeit, int x, int y, boolean wochentag){
 void alarmRegeln(){
     if(alarmAn){
     if(aktuell.TotalSeconds() >= alarmZeit.TotalSeconds()){
-            lcd.clear();
-            selIndex = 5;
-            alarm();
+        lcd.clear();
+        lcd.print("Alarm ausgel\357st");
+        lcd.setCursor(0,1);
+        lcd.print("Guten ");
+        int alarm_h = alarmZeit.Hour();
+        if(alarm_h < 5){
+          lcd.setCursor(0,4);
+          lcd.print(" Nacht");
+        }
+      if(alarm_h >= 5 && alarm_h < 12){
+          lcd.print(" Morgen");
+        }
+        
+      if(alarm_h >= 12 && alarm_h < 18){
+          lcd.print(" Tag");
+        }
+
+      if(alarm_h >= 18 && alarm_h < 24){
+          lcd.print(" Abend");
+        }
+      alarm();
       }
     }  
 }
@@ -134,18 +157,40 @@ void alarmRegeln(){
 void alarm(){
   unsigned long t2 = millis();
   tone(38, 500);
+  digitalWrite(b, 255);
   warten(t2);
+  if(!alarmAn) {
+      resetNachAlarm();
+      return;
+  }
   noTone(38);
+  digitalWrite(b, 0);
   t2 = millis();
   warten(t2);
   if(alarmAn) alarm();
+  else {
+      resetNachAlarm();
+  }
 }
 
 void warten(unsigned long t2){
     while(millis()-t2 < 2000){
     lcd_key = read_LCD_buttons();
-    if(buttonPressed(lcd_key)) {alarmAn = false;Serial.println("ausgeschaltet");}
+    if(buttonPressed(lcd_key)){
+      alarmAn = false;
+      lcd_key = btnNONE;
+      return;
+    }
   }
+}
+
+void resetNachAlarm(){
+      index = 0;
+      selIndex = 0;
+      digitalWrite(b, 255);
+      t = millis();
+      lcd.clear();
+      noTone(38);
 }
 
 void wecker(){
@@ -190,28 +235,6 @@ void wecker(){
       alarmAn = true;
       lcd.print("Alarm: ");
       zeitDarstellen(alarmZeit, 7, 0, false); 
-    }
-
-    if(selIndex == 5){
-      lcd.print("Alarm ausgel\357st");
-      lcd.setCursor(0,1);
-      lcd.print("Guten ");
-      int alarm_h = alarmZeit.Hour();
-      if(alarm_h < 5){
-          lcd.setCursor(0,4);
-          lcd.print(" Nacht");
-        }
-      if(alarm_h >= 5 && alarm_h < 12){
-          lcd.print(" Morgen");
-        }
-        
-      if(alarm_h >= 12 && alarm_h < 18){
-          lcd.print(" Tag");
-        }
-
-      if(alarm_h >= 18 && alarm_h < 24){
-          lcd.print(" Abend");
-        }
     }
 }
 
