@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/leonardoInf/Wecker2560.svg?branch=master)](https://travis-ci.org/leonardoInf/Wecker2560)
 
 
-Ein Wecker für Mega2560 + RTC-Modul + WLAN + Bluetooth
+Ein Wecker für Mega2560 + RTC DS1302-Modul + ESP8266 (WLAN) + HC-05/06 (Bluetooth)
 
 ## Installation
 1. Arduino-IDE installieren
@@ -13,7 +13,8 @@ Ein Wecker für Mega2560 + RTC-Modul + WLAN + Bluetooth
 6. Einstellungen für das Board und den Seriellen Port auswählen (z.B. ``/dev/ttyACM0`` ,``/dev/ttyUSB0`` oder ``COM8``)
 7. Sketch hochladen
 
-## Schaltung
+## Schaltung Mega2560
+
 
 
 
