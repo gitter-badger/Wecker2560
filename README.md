@@ -1,5 +1,5 @@
 # Wecker2560
-[![Build Status](https://travis-ci.org/leonardoInf/Wecker2560.svg?branch=master)](https://travis-ci.org/leonardoInf/Wecker2560)
+[![Build Status](https://travis-ci.org/leonardoInf/Wecker2560.svg?branch=master)](https://travis-ci.org/leonardoInf/Wecker2560) [![Join the chat at https://gitter.im/Wecker2560/community](https://badges.gitter.im/Wecker2560/community.svg)](https://gitter.im/Wecker2560/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 Ein Wecker für Mega2560 + DS1302-Modul (Echtzeit-Uhr) + ESP8266 (WLAN) + HC-05/06 (Bluetooth)
